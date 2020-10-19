@@ -4,9 +4,9 @@ from flask_mysqldb import MySQL
 app = Flask(__name__)
 
 app.config['MYSQL_HOST'] = 'pathlearn.thehomeserver.net'
-app.config['MYSQL_USER'] = 'PathLearnFlask'
-app.config['MYSQL_PASSWORD'] = 'flasktest'
-app.config['MYSQL_DB'] = 'flasktest'
+app.config['MYSQL_USER'] = 'PathLearnTest'
+app.config['MYSQL_PASSWORD'] = 'testpass'
+app.config['MYSQL_DB'] = 'testpass'
 
 mysql = MySQL(app)
 
