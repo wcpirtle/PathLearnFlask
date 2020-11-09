@@ -3,14 +3,16 @@ import googleapiclient.errors
 
 import json
 
+import config
+
 def getTop5Videos(searchterm):
 
     api_service_name = "youtube"
     api_version = "v3"
-    api_key = "AIzaSyC0RxBTu3ut5KaHJjlDDI96uYF5GrbbWR8"
+    
 
     youtube = googleapiclient.discovery.build(
-        api_service_name, api_version, developerKey=api_key)
+        api_service_name, api_version, developerKey=config.api_key)
 
     request = youtube.search().list(
         part="snippet",
