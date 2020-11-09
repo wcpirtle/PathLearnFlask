@@ -2,6 +2,8 @@ from flask import Flask, request, jsonify
 from flask_mysqldb import MySQL
 from flask_cors import CORS
 
+from YouTubeSearch import getTop5Videos
+
 app = Flask(__name__)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
@@ -40,6 +42,10 @@ def test():
         'password': request.json['password'],
     }
     return jsonify({'token': token})
+
+@app.route("/api/youtube/<searchterm>", methods=['GET'])
+def youtube(searchterm):
+    return getTop5Videos(searchterm)
     
 if __name__ == '__main__':
 	app.run(debug=True)
