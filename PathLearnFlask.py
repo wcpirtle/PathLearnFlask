@@ -4,13 +4,15 @@ from flask_cors import CORS
 
 from YouTubeSearch import getTop5Videos
 
+import config
+
 app = Flask(__name__)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
-app.config['MYSQL_HOST'] = 'pathlearn.thehomeserver.net'
-app.config['MYSQL_USER'] = 'PathLearnTest'
-app.config['MYSQL_PASSWORD'] = 'testpass'
-app.config['MYSQL_DB'] = 'test'
+app.config['MYSQL_HOST'] = config.mysql_host
+app.config['MYSQL_USER'] = config.mysql_user
+app.config['MYSQL_PASSWORD'] = config.mysql_password
+app.config['MYSQL_DB'] = config.mysql_db
 
 mysql = MySQL(app)
 
