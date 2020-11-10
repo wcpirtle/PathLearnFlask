@@ -45,6 +45,14 @@ def test():
     }
     return jsonify({'token': token})
 
+@app.route("/api/postCourses", methods=['POST'])
+def postCourses():
+    courses = request.json['courses']
+    return jsonify({'courses': courses})
+
+# @app.route("api/getCourses")
+# def getCourses():
+#     # TODO
 @app.route("/api/youtube/<searchterm>", methods=['GET'])
 def youtube(searchterm):
     return getTop5Videos(searchterm)
