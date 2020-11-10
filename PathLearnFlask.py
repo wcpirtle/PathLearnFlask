@@ -1,16 +1,16 @@
 from flask import Flask, request, jsonify
-# from flask_mysqldb import MySQL
+from flask_mysqldb import MySQL
 from flask_cors import CORS
 
 app = Flask(__name__)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
-# app.config['MYSQL_HOST'] = 'pathlearn.thehomeserver.net'
-# app.config['MYSQL_USER'] = 'PathLearnTest'
-# app.config['MYSQL_PASSWORD'] = 'testpass'
-# app.config['MYSQL_DB'] = 'test'
+app.config['MYSQL_HOST'] = 'pathlearn.thehomeserver.net'
+app.config['MYSQL_USER'] = 'PathLearnTest'
+app.config['MYSQL_PASSWORD'] = 'testpass'
+app.config['MYSQL_DB'] = 'test'
 
-# mysql = MySQL(app)
+mysql = MySQL(app)
 
 @app.route('/')
 def index():
@@ -46,9 +46,9 @@ def postCourses():
     courses = request.json['courses']
     return jsonify({'courses': courses})
 
-@app.route("api/getCourses")
-def getCourses():
-    # TODO
+# @app.route("api/getCourses")
+# def getCourses():
+#     # TODO
     
 if __name__ == '__main__':
 	app.run(debug=True)
